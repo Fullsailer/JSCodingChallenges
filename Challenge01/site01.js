@@ -1,4 +1,4 @@
-const marvelHeros = [
+const marvelHeroes = [
     "Ant-Man",
     "Black Panther",
     "Black Widow",
