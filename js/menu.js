@@ -2,7 +2,7 @@
 
 function getmenu(pageid) {
     
-    let templateURL = 'template/menu.html';
+    let templateURL = '/template/menu/html';
     if (pageid == 0) {
         templateURL = 'template/menu.html';
     };
