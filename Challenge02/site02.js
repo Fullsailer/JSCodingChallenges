@@ -35,6 +35,73 @@ function checkBrackets() {
 //takes an array of strings and returns the longest one. 
 function isBalanced(brackets) {
 
-   return false;
+    let stack = [];
+    
+    for (let index = 0; index < brackets.length; index++) {
+        
+        let item = brackets[index];
 
+        if (item == '(' || item == '{' || item == "[") {
+            stack.push(item);
+            continue;            
+        }else if (item == ')' || item == "}" || item == ']') {
+            
+            if (stack.length == 0) {
+                return false;
+            }
+
+            check = stack.pop();
+            switch (item) {
+                case ')' :
+                    if (check != '(') {
+                        return false;
+                    }
+                    break;
+                case '}' :
+                    if (check != '{') {
+                        return false;
+                    }
+                    break;
+                case ']' :
+                    if (check != '[') {
+                        return false;
+                    }
+                    break;
+            }
+        }
+        
+    }
+
+   return stack.length == 0;
+
+}
+
+function isBalancedB(brackets){
+    let stack = [];
+    let openBrackets = ["(", "{", "["];
+    let closeBrackets = [")", "}", "]"];
+    const balancedBrackets = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]" 
+    };
+
+    for (let index = 0; index < brackets.length; index++) {
+        
+        let item = brackets[index];
+        if (openBrackets.includes(item)) {
+            stack.push(item);
+            continue;
+        }else if (closeBrackets.includes(item)) {
+            
+            if (stack.length == 0) {
+                return false;
+            }
+            check = stack.pop();
+            if(balancedBrackets[check] != item){
+                return false;
+            }
+        }
+    }
+    return stack.length ==0;
 }
